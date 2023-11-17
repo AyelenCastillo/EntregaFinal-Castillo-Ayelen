@@ -1,15 +1,15 @@
-
-/* inicio estilos NavBar*/
 .navbar {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    background-color: #ffffff59;
+    background-color: #fdf9eec2;
     padding: 1rem 0;
     border-bottom: 1px solid #dddddd86;
+    width: auto;
   }
   
   .navbar-brand {
+    background-color: white;
     font-size: 1.5rem;
     color: #333;
     text-decoration: none;
@@ -22,12 +22,6 @@
     margin-left: 0px;
   }
   
-  .nav-links {
-    display: flex;
-    flex-direction: column;
-    margin-top: 1rem;
-  }
-  
   .cart-widget {
     display: flex;
     align-items: center;
@@ -35,11 +29,18 @@
   }
   
   .nav-link {
-    color: #555;
-    font-weight: 500;
-    margin-bottom: 10px;
-   text-decoration:none;
-   padding: 0px 20px 0px 20px;
+   color: #555;
+   background-color: #fdf9eec2;
+   padding: 20px 20px 20px 20px;
+   margin: 0px 30px 0px 30px;
+   border: none;
+  }
+  .nav-link:hover {
+    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSV5xVg1NovIm7YfjaXECzt7wO59q71usK7ROrSUYkV3O4XtSDrDqhnKsDv8Ytx9o3uHC4&usqp=CAU");
+      background-size: cover;
+  background-position: center;
+    color: rgb(0, 0, 0);
+    border-radius: 80%;
   }
   
   @media (min-width: 768px) {
@@ -57,28 +58,4 @@
       flex-direction: row;
       margin: 0;
     }
-  }
-  
-  /*Fin estilos NavBar*/
-  .bien{
-    background-color: burlywood;
-    width: 50%;
-    height: auto;
-    margin: 50px auto;
-  }
-  .cont{
-    background-color: aquamarine;
-    padding: 50px;
-    margin: 0px auto;
-    border-top-right-radius: 90%;
-    border-bottom-left-radius: 90%;
-  }
-  h1{
-    color: rgb(26, 22, 255);
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  }
-  p{
-    color: #c21bd8;
-    font-size: 20px;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   }
