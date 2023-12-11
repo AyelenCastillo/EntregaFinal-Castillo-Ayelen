@@ -1,6 +1,8 @@
+import { addDoc, collection } from "firebase/firestore";
+import { db } from "../config/configfirebase";
+
 const products = [
-    { id: "1", 
-    name: "Excellent Smart Formula Perro Adulto 20 Kg", 
+    {name: "Excellent Smart Formula Perro Adulto 20 Kg", 
     img: "https://catycanar.vtexassets.com/arquivos/ids/170439-800-auto?v=638355621661670000&width=800&height=auto&aspect=true", 
     price: 25.189, 
     category: "alimento para perros", 
@@ -11,7 +13,7 @@ const products = [
     weigth:"20 kg",
     med: "No",
     stock: 10 },
-    { id: "2",name: "Excellent Smart Perro Senior 15 Kg", 
+    {name: "Excellent Smart Perro Senior 15 Kg", 
     img: "https://catycanar.vtexassets.com/arquivos/ids/170441-800-auto?v=638355622829170000&width=800&height=auto&aspect=true", 
     price:27.354, 
     category: "alimento para perros", 
@@ -22,7 +24,7 @@ const products = [
     weigth:"15 kg",
     med: "No",
     stock: 10 },
-    { id: "3", name: "Excellent Smart Formula Perro Cachorro 20 Kg", 
+    {name: "Excellent Smart Formula Perro Cachorro 20 Kg", 
     img: "https://catycanar.vtexassets.com/arquivos/ids/158198-800-auto?v=637732978580000000&width=800&height=auto&aspect=true", 
     price: 33.361, 
     category: "alimento para perros", 
@@ -33,7 +35,7 @@ const products = [
     weigth:"20 kg",
     med: "No",
     stock: 10 },
-    { id: "4",name: "Vitalcan Complete Gato Adulto X 15 Kg", 
+    {name: "Vitalcan Complete Gato Adulto X 15 Kg", 
     img: "https://catycanar.vtexassets.com/arquivos/ids/167685-800-auto?v=638144854676530000&width=800&height=auto&aspect=true", 
     price: 22.815, 
     category: "alimento para gato", 
@@ -44,7 +46,7 @@ const products = [
     weigth:"15 kg",
     med: "No",
     stock: 10 },
-    { id: "5",name: "Vitalcan Complete Gato Senior X 7.5 Kg", 
+    {name: "Vitalcan Complete Gato Senior X 7.5 Kg", 
     img: "https://catycanar.vtexassets.com/arquivos/ids/167706-800-auto?v=638144878815500000&width=800&height=auto&aspect=true", 
     price:13.698, 
     category: "alimento para gato", 
@@ -55,7 +57,7 @@ const products = [
     weigth:"7.5 kg",
     med: "No",
     stock: 10 },
-    { id: "6", name: "Vitalcan Complete Gato Kitten X 7.5 Kg", 
+    {name: "Vitalcan Complete Gato Kitten X 7.5 Kg", 
     img: "https://catycanar.vtexassets.com/arquivos/ids/167682-800-auto?v=638144848631300000&width=800&height=auto&aspect=true", 
     price:13.347 , 
     category: "alimento para gato", 
@@ -66,7 +68,7 @@ const products = [
     weigth:"7.5 kg",
     med: "No",
     stock: 10 },
-    { id: "7",name: "Juguete Perro Gallina, Sonido Animal, Látex, 48 Cm", 
+    { name: "Juguete Perro Gallina, Sonido Animal, Látex, 48 Cm", 
     img: "https://catycanar.vtexassets.com/arquivos/ids/163179-800-auto?v=637786407578700000&width=800&height=auto&aspect=true", 
     price:11.270 , 
     category: "accesorios perro", 
@@ -77,7 +79,7 @@ const products = [
     weigth:"----",
     med: "No",
     stock: 10 },
-    { id: "8",name: "Juguete Para Gato Raton Interactivo Gigwi", 
+    { name: "Juguete Para Gato Raton Interactivo Gigwi", 
     img: "https://catycanar.vtexassets.com/arquivos/ids/159960-800-auto?v=637733199347400000&width=800&height=auto&aspect=true", 
     price:15.326, 
     category: "accesorios gato", 
@@ -89,34 +91,9 @@ const products = [
     med: "No",
     stock: 10 },
   ];
-    
-    export const getProducts = () => {
-      return new Promise((resolve, reject) => {
-        
-        if (products.length > 0) {
-          setTimeout(() => {
-            resolve(products);
-          }, 2000);
-        } else {
-          reject("No hay productos");
-        }
-      });
-    };
-  
-    export const getProductById = (id) => {
-      return new Promise((resolve, reject) => {
-        
-        if (products.length > 0) {
-          const product = products.find( p => p.id === id);
-          
-          setTimeout(() => {
-            if(!product) {
-              reject(`No se encuentra el productos con el id ${id}`)
-            }
-            resolve(product);
-          }, 2000);
-        } else {
-          reject("No hay productos");
-        }
-      });
-    };
+
+  export const seedProducts = () => {
+    products.forEach((product) => {
+      addDoc(collection(db, "products"), product);
+    });
+  };

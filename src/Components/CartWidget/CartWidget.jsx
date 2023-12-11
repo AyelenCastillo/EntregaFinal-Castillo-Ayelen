@@ -1,14 +1,19 @@
-import { useState } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { useCart } from '../../context/CartContext';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 
+//contador q se ve al lado del carrito
 export const CartWidget = () => {
-  const [count, setCount] = useState(2);
+  const { totalQuantity } = useCart();
 
   return (
-    <>
-      <FontAwesomeIcon icon={faShoppingCart} />
-      <span>({count})</span>
-    </>
+    <Link to="/cart">
+      <div className="cart-widget">
+        <FontAwesomeIcon icon={faShoppingCart} />
+        <span className="cart-count">({totalQuantity})</span>
+      </div>
+    </Link>
   );
 };

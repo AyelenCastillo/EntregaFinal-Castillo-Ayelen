@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./ItemCount.css"
 
+//Contador de productos
 export const ItemCount = ({ stock, initial = 1, onAdd }) => {
   const [count, setCount] = useState(initial);
 
