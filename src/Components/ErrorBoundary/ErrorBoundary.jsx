@@ -1,4 +1,3 @@
-// Ejemplo de ErrorBoundary.jsx
 import React, { Component } from 'react';
 
 class ErrorBoundary extends Component {
@@ -12,17 +11,15 @@ class ErrorBoundary extends Component {
   }
 
   componentDidCatch(error, errorInfo) {
-    // Aquí podrías realizar acciones adicionales, como enviar errores a un servicio de seguimiento
     console.error('Error capturado:', error, errorInfo);
   }
 
   render() {
     if (this.state.hasError) {
-      // Renderiza algún componente indicando que hubo un error
+      // Renderiza un componente indicando que hubo un error
       return <div>Hubo un error en la aplicación.</div>;
     }
-
-    // Si no hay error, renderiza los hijos normalmente
+    // Si no hay error, renderiza normalmente
     return this.props.children;
   }
 }

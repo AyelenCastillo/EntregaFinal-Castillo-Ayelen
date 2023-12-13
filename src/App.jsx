@@ -6,7 +6,7 @@ import { ItemListContainer } from "./Components/ItemListContainer/ItemListContai
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import { CartContextProvider } from "./context/CartContext";
 import Order from "./Components/Order/Order";
-import ErrorBoundary from './Components/ErrorBoundary/ErrorBoundary'; // Ajusta la ruta correcta
+import ErrorBoundary from './Components/ErrorBoundary/ErrorBoundary'; 
 
 function App() {
   return (
