@@ -23,4 +23,4 @@
 [!][Captura de Rechazo de la orden de compra](https://drive.google.com/file/d/1tX3SknWORBo7NX_UcIOwTeWox_Q2Et7x/view?usp=drive_link )
 
 ## Datos de Contacto
-[LinkedIn](www.linkedin.com/in/ayelen-castillo-789ba2258 "LinkedIn")
+[LinkedIn](https://www.linkedin.com/in/ayelen-castillo-789ba2258/ "LinkedIn")
