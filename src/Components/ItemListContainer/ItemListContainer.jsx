@@ -1,14 +1,11 @@
 import { collection, getDocs, query, where, doc, getDoc } from "firebase/firestore";
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { db } from "../../config/configfirebase";
-import { CartContext } from "../../context/CartContext";
 import { HamsterLoading } from "../HamsterLoading/HamsterLoading";
 import { ItemList } from "../ItemList/ItemList";
 import { useParams } from 'react-router-dom';
 
 export const ItemListContainer = () => {
-  // Obtén la cantidad total de productos en el carrito desde el contexto
-  const { totalQuantity } = useContext(CartContext);
 
   // Obtén la categoría desde los parámetros de la URL
   const { category } = useParams();

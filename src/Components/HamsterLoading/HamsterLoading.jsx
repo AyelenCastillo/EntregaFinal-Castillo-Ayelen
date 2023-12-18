@@ -4,7 +4,6 @@ export const HamsterLoading = () => {
     return (
         <>
         <div className='fondo'>
-        <span className='mensaje'>En honor a Hamti, mi valiente amigo, Q.D.E.P</span>
         <div className="wheel-and-hamster">
         <div className="wheel"></div>
         <div className="hamster">

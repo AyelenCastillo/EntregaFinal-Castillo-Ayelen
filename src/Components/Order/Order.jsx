@@ -150,7 +150,7 @@ const Order = () => {
   const deleteOrderFromFirestore = async (orderId) => {
     try {
       const orderRef = doc(db, "orders", orderId);
-      console.log("Eliminando orden con ID:", orderId); //para que se pueda verificar
+      console.log("Eliminando orden con ID:", orderId); //para que se pueda verificar sin entrar al firebase
       await deleteDoc(orderRef);
       console.log("Orden eliminada con éxito"); //para confirmar la eliminacion
       Swal.fire({
@@ -193,7 +193,7 @@ const Order = () => {
 
       // Agregar la orden a Firestore y obtener el ID generado
       const docRef = await addDoc(ordersCollectionRef, orderData);
-      //para que el docente verifique la cargaa a firebase
+      //para que el docente verifique la carga a firebase
       console.log("Orden creada con ID:", docRef.id);
 
       const orderConfirmationMessage = `

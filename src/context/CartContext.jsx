@@ -1,18 +1,16 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
 
-// Crea y exporta el contexto del carrito
 export const CartContext = createContext(null);
 
 // Hook para utilizar el contexto del carrito
 export const useCart = () => {
   const context = useContext(CartContext);
   if (!context) {
-    throw new Error('useCart must be used within a CartContextProvider');
+    throw new Error('useCart debe utilizarse dentro de un CartContextProvider');
   }
   return context;
 };
 
-// Proveedor del contexto del carrito 
 export const CartContextProvider = ({ children }) => {
   // Obtener los elementos del carrito almacenados en el localStorage 
   const storedCartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
@@ -24,7 +22,7 @@ export const CartContextProvider = ({ children }) => {
   // Cantidad total de productos en el carrito
   const [totalQuantity, setTotalQuantity] = useState(0);
 
-  // Función para añadir un elemento al carrito o actualizar la cantidad si ya existe
+  // Función para añadir un elemento al carrito 
   const addItem = (item, quantity) => {
     const { id, name, description, img, price, age, size, brand, weight, med } = item;
     const index = cartItems.findIndex((product) => product.id === id);
@@ -92,7 +90,7 @@ export const CartContextProvider = ({ children }) => {
     handleTotalQuantity();
   }, [cartItems]);
 
-  // Efecto para almacenar los elementos del carrito en el localStorage cuando cambian
+  // Almacenar los elementos del carrito en el localStorage cuando cambian
   useEffect(() => {
     localStorage.setItem('cartItems', JSON.stringify(cartItems));
   }, [cartItems]);
